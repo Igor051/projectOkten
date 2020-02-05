@@ -11,7 +11,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 
 
-function App(props) {
+function App() {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
