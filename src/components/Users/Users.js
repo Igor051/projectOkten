@@ -2,6 +2,7 @@ import style from "./Users.module.css";
 import React from "react";
 import userIcon from '../../assets/images/UserIcon.png'
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
 
 function Users(props) {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -29,24 +30,50 @@ function Users(props) {
                     </div>
                     <div>
                         {u.followed ? <button onClick={() => {
-                                props.unfollow(u.id)
+                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                                    {
+                                        withCredentials: true,
+                                        headers: {
+                                            "API-KEY": "94d2bee9-4030-4d4e-a85a-00f673b6f3ac"
+                                        }
+                                    }
+                                ).then(res => {
+                                    if (res.data.resultCode == 0) {
+                                        props.unfollow(u.id)
+                                    }
+                                })
+
+
                             }}>Unfollow</button>
                             : <button onClick={() => {
-                                props.follow(u.id)
-                            }}>Follow</button>}
+                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
+                                    {
+                                        withCredentials: true,
+                                        headers: {
+                                            "API-KEY": "94d2bee9-4030-4d4e-a85a-00f673b6f3ac"
+                                        }
+                                    }).then(res => {
+                                    if (res.data.resultCode == 0) {
+                                        props.follow(u.id)
+                                    }
+                                })
 
-                    </div>
-                </span>
+
+                            }
+                            }>Follow</button>}
+
+                                </div>
+                                </span>
             <span>
-                    <span>
-                        <div>{u.name}</div>
-                        <div>{u.status}</div>
-                    </span>
-                    <span>
-                        <div>{'u.location.country'}</div>
-                        <div>{'u.location.city'}</div>
-                    </span>
-                </span>
+                                <span>
+                                <div>{u.name}</div>
+                                <div>{u.status}</div>
+                                </span>
+                                <span>
+                                <div>{'u.location.country'}</div>
+                                <div>{'u.location.city'}</div>
+                                </span>
+                                </span>
         </div>)
         }
     </div>
