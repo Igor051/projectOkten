@@ -2,7 +2,6 @@ import style from "./Users.module.css";
 import React from "react";
 import userIcon from '../../assets/images/UserIcon.png'
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
 import {usersAPI} from "../../api/api";
 
 function Users(props) {
