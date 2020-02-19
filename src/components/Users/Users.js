@@ -2,7 +2,6 @@ import style from "./Users.module.css";
 import React from "react";
 import userIcon from '../../assets/images/UserIcon.png'
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
 
 function Users(props) {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -30,26 +29,13 @@ function Users(props) {
                     </div>
                     <div>
                         {u.followed ?
-                            <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                                props.toggleFollowingProgress(true, u.id);
-                                usersAPI.unfollowUser(u.id).then(resultCode => {
-                                    if (resultCode == 0) {
-                                        props.unfollow(u.id)
-                                    }
-                                    props.toggleFollowingProgress(false, u.id)
-                                })
+                            <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                    onClick={() => {props.unfollow(u.id);}}>Unfollow</button>
 
-                            }}>Unfollow</button>
-                            : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                                props.toggleFollowingProgress(true, u.id);
-                                usersAPI.followUser(u.id).then(resultCode => {
-                                    if (resultCode == 0) {
-                                        props.follow(u.id)
-                                    }
-                                    props.toggleFollowingProgress(false, u.id)
-                                })
-                            }
-                            }>Follow</button>}
+
+                            : <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                      onClick={() => {props.follow(u.id)}}>Follow</button>}
+
 
                                 </div>
                                 </span>

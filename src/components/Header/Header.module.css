@@ -11,11 +11,15 @@
     height: 40px;
 }
 
-.loginBlock{
+.loginBlock {
     float: right;
 }
 
 .loginBlock a{
     text-decoration: none;
+    color: white;
+}
+
+.login{
     color: white;
 }

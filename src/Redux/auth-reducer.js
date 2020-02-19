@@ -1,3 +1,6 @@
+import {profileApi} from "../api/api";
+import {toggleIsFetching} from "./users-reducer";
+
 const SET_USER_DATA = 'SET_USER_DATA';
 
 
@@ -24,5 +27,18 @@ const authReducer = (state = initialState, action) => {
 
 export const setAuthUserData = (id, email, login) => ({type: SET_USER_DATA, data: {id, email, login}});
 
+export const authMe = () => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true));
+        profileApi.authMe()
+            .then(res => {
+              dispatch(toggleIsFetching(false));
+                if (res.data.resultCode === 0) {
+                    let {id, email, login} = res.data.data;
+                    dispatch(setAuthUserData(id, email, login))
+                }
+            })
+    }
+}
 
 export default authReducer

@@ -7,7 +7,7 @@ function Header(props) {
         <div className={style.header}>
             <img src="https://www.sigcomm.org/sites/default/files/logos/sigcomm-dropshadow-spaced.png"/>
             <div className={style.loginBlock}>
-                {props.isAuth ? props.login :
+                {props.isAuth ? <div className={style.login}>{props.login}</div> :
                     <NavLink to={'/login'}>Login</NavLink>
                 }
             </div>
