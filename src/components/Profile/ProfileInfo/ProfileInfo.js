@@ -1,6 +1,7 @@
 import React from "react";
 import style from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 function ProfileInfo(props) {
     if (!props.profile) {
@@ -18,7 +19,7 @@ function ProfileInfo(props) {
                 <img src={props.profile.photos.large} alt="avatar"/>
             </div>
             <div>
-                <span>About me:</span> {props.profile.aboutMe} <br/>
+                <ProfileStatus status={props.profile.aboutMe} />
                 <div>{contacts.twitter == null ? null : <a href={contacts.twitter}>Twitter</a>}</div>
                 <div>{contacts.website == null ? null : <a href={contacts.website}>Website</a>}</div>
                 <div>{contacts.vk == null ? null : <a href={contacts.vk}>Vk</a>}</div>
