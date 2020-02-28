@@ -20,7 +20,7 @@ function ProfileInfo(props) {
                 <img src={props.profile.photos.large} alt="avatar"/>
             </div>
             <div>
-                <ProfileStatus status={props.profile.aboutMe}/>
+                <ProfileStatus aboutMe={props.profile.aboutMe} status={props.status} updateStatus={props.updateStatus}/>
                 <Contacts contacts={props.profile.contacts}/>
             </div>
         </div>
