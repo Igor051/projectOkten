@@ -3,6 +3,7 @@ import {Field, reduxForm} from "redux-form";
 
 function LoginForm(props) {
     return <form onSubmit={props.handleSubmit}>
+        <div>commit test</div>
         <div>
             <Field placeholder={'Login'} name={'login'} component={'input'}/>
         </div>
