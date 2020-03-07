@@ -3,16 +3,13 @@ import style from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {Redirect} from "react-router-dom";
+import {Field, reduxForm} from "redux-form";
+import AddMessageFormRedux from "./DialogsForm";
 
 function Dialogs(props) {
 
-    let addMessage = () => {
-        props.sendMessage()
-    };
-
-    let onMessageChange = (e) => {
-        let text = e.target.value;
-        props.updateNewMessageText(text)
+    let addNewMessage = (values) => {
+        props.sendMessage(values.newMessageBody)
     };
 
     let DialogsElement = props.dialogsPage.dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id}
@@ -29,13 +26,7 @@ function Dialogs(props) {
             </div>
             <div className={style.messages}>
                 {messagesElements}
-                <div>
-                    <textarea onChange={onMessageChange} value={props.dialogsPage.newMessageText}
-                              placeholder='Write a message...'/>
-                </div>
-                <div>
-                    <button onClick={addMessage}>Send</button>
-                </div>
+                <AddMessageFormRedux onSubmit={addNewMessage}/>
             </div>
 
         </div>

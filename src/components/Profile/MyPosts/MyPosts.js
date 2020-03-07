@@ -1,5 +1,8 @@
 import React from 'react';
 import Post from "./Post/Post";
+import {reduxForm} from "redux-form";
+import {Field} from "redux-form/es";
+import NewPostElementForm from "./MyPostsForm";
 
 function MyPosts(props) {
     let postsElement = props.posts.map(post => <Post message={post.message} likesCount={post.likesCount}
@@ -7,27 +10,17 @@ function MyPosts(props) {
 
     let newPostElement = React.createRef();
 
-    let onAddPost = () => {
-        props.addPost()
+    let onAddPost = (values) => {
+        props.addPost(values.newPostText)
     };
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text)
-    };
     return (
         <div>
             My posts
             <div>
                 New post
             </div>
-            <div>
-                <textarea ref={newPostElement} onChange={onPostChange} value={props.newPostText}/>
-            </div>
-            <div>
-                <button onClick={onAddPost}>New post
-                </button>
-            </div>
+            <NewPostElementForm onSubmit={onAddPost}/>
             {postsElement}
         </div>
     )
