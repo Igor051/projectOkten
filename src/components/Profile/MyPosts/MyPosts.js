@@ -16,10 +16,8 @@ function MyPosts(props) {
 
     return (
         <div>
-            My posts
-            <div>
-                New post
-            </div>
+            <b>My posts</b>
+
             <NewPostElementForm onSubmit={onAddPost}/>
             {postsElement}
         </div>

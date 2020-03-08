@@ -1,7 +1,8 @@
 import React from "react";
+import style from './ProfileInfo.module.css'
 
 function Contacts(props) {
-return <div>
+return <div className={style.contacts}>
     <div>{props.contacts.twitter == null ? null : <a href={props.contacts.twitter}>Twitter</a>}</div>
     <div>{props.contacts.website == null ? null : <a href={props.contacts.website}>Website</a>}</div>
     <div>{props.contacts.vk == null ? null : <a href={props.contacts.vk}>Vk</a>}</div>

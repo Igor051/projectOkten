@@ -9,7 +9,6 @@ let initialState = {
         {id: 1, message: 'Hello friend', likesCount: '8'},
         {id: 2, message: 'Hi, bro. How are you ?', likesCount: '22'}
     ],
-    newPostText: '',
     profile: null,
     status: ''
 };
@@ -25,7 +24,6 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 posts: [...state.posts, newPost],
-                newPostText: ''
             };
         }
         case SET_USER_PROFILE: {
