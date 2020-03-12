@@ -1,5 +1,6 @@
 import {profileApi} from "../api/api";
 import {toggleIsFetching} from "./users-reducer";
+import {stopSubmit} from 'redux-form'
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
@@ -47,6 +48,9 @@ export const loginUser = (email, password, rememberMe) => (dispatch) => {
             dispatch(toggleIsFetching(false));
             if (res.data.resultCode === 0) {
                 dispatch(authMe())
+            } else {
+                let message = res.data.messages.length > 0 ? res.data.messages[0] : 'Email or password are incorrect';
+                dispatch(stopSubmit('login', {_error: message}))
             }
         })
 };
