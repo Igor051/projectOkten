@@ -30,7 +30,7 @@ export const setAuthUserData = (id, email, login, isAuth) => ({type: SET_USER_DA
 export const authMe = () => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
-        profileApi.authMe()
+       return  profileApi.authMe()
             .then(res => {
                 dispatch(toggleIsFetching(false));
                 if (res.data.resultCode === 0) {

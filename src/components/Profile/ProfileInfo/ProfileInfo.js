@@ -3,6 +3,8 @@ import style from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import Contacts from "./Contacts";
+import avatar from "../../../assets/images/avatar.png"
+import profileUpperPhoto from  '../../../assets/images/ProfileUpperPhoto.jpg'
 
 function ProfileInfo(props) {
     if (!props.profile) {
@@ -14,10 +16,13 @@ function ProfileInfo(props) {
             <div>
                 <img
                     className={style.profileUpperPhoto}
-                    src="https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg"/>
+                    src={profileUpperPhoto}/>
             </div>
             <div>
-                <img src={props.profile.photos.large} alt="avatar"/>
+                {props.profile.photos.large ?
+                    <img src={props.profile.photos.large} alt="avatar"/> :
+                    <img src={avatar}
+                         className={style.avatar}/>}
             </div>
             <div>
                 <ProfileStatus aboutMe={props.profile.aboutMe} status={props.status} updateStatus={props.updateStatus}/>
