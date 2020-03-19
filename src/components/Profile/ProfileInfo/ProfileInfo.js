@@ -5,6 +5,7 @@ import ProfileStatus from "./ProfileStatus";
 import Contacts from "./Contacts";
 import avatar from "../../../assets/images/avatar.png"
 import profileUpperPhoto from  '../../../assets/images/ProfileUpperPhoto.jpg'
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 function ProfileInfo(props) {
     if (!props.profile) {
@@ -25,7 +26,7 @@ function ProfileInfo(props) {
                          className={style.avatar}/>}
             </div>
             <div>
-                <ProfileStatus aboutMe={props.profile.aboutMe} status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusWithHooks aboutMe={props.profile.aboutMe} status={props.status} updateStatus={props.updateStatus}/>
                 <Contacts contacts={props.profile.contacts}/>
             </div>
         </div>
