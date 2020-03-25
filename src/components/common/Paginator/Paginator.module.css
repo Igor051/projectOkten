@@ -1,3 +1,27 @@
 .selectedPage {
     font-weight: bold;
 }
+
+.pageNumber {
+    padding: 2px;
+    margin: 2px;
+    border: 1px solid black;
+}
+
+.pages {
+    display: inline-block;
+}
+
+.paginator {
+    margin: 6px 0;
+}
+
+.paginator button:active, .paginator button:focus {
+    outline: none;
+}
+
+.paginator  button{
+    color: white;
+    background-color: black;
+    border-radius: 50px;
+}

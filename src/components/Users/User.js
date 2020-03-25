@@ -33,10 +33,9 @@ function User({user, followingInProgress, unfollow, follow}) {
                                 <span>
                                 <div>{user.name}</div>
                                 <div>{user.status}</div>
+                                    <br/>
                                 </span>
                                 <span>
-                                <div>{'u.location.country'}</div>
-                                <div>{'u.location.city'}</div>
                                 </span>
                                 </span>
         </div>
