@@ -1,0 +1,2 @@
+(this.webpackJsonpproject=this.webpackJsonpproject||[]).push([[4],{292:function(t,e,n){},295:function(t,e,n){"use strict";n.r(e);var c=n(0),r=n.n(c);n(292);e.default=function(){return r.a.createElement("div",null,"News")}}}]);
+//# sourceMappingURL=4.abe0bf6e.chunk.js.map

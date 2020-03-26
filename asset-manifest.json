@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/projectOkten/static/css/main.55838211.chunk.css",
+    "main.js": "/projectOkten/static/js/main.7bdb4f19.chunk.js",
+    "main.js.map": "/projectOkten/static/js/main.7bdb4f19.chunk.js.map",
+    "runtime-main.js": "/projectOkten/static/js/runtime-main.f2446c10.js",
+    "runtime-main.js.map": "/projectOkten/static/js/runtime-main.f2446c10.js.map",
+    "static/js/2.e3db901b.chunk.js": "/projectOkten/static/js/2.e3db901b.chunk.js",
+    "static/js/2.e3db901b.chunk.js.map": "/projectOkten/static/js/2.e3db901b.chunk.js.map",
+    "static/css/3.7d0349df.chunk.css": "/projectOkten/static/css/3.7d0349df.chunk.css",
+    "static/js/3.8e0e2d4c.chunk.js": "/projectOkten/static/js/3.8e0e2d4c.chunk.js",
+    "static/js/3.8e0e2d4c.chunk.js.map": "/projectOkten/static/js/3.8e0e2d4c.chunk.js.map",
+    "static/css/4.25b44a53.chunk.css": "/projectOkten/static/css/4.25b44a53.chunk.css",
+    "static/js/4.abe0bf6e.chunk.js": "/projectOkten/static/js/4.abe0bf6e.chunk.js",
+    "static/js/4.abe0bf6e.chunk.js.map": "/projectOkten/static/js/4.abe0bf6e.chunk.js.map",
+    "static/css/5.5175b7cb.chunk.css": "/projectOkten/static/css/5.5175b7cb.chunk.css",
+    "static/js/5.211629d3.chunk.js": "/projectOkten/static/js/5.211629d3.chunk.js",
+    "static/js/5.211629d3.chunk.js.map": "/projectOkten/static/js/5.211629d3.chunk.js.map",
+    "index.html": "/projectOkten/index.html",
+    "precache-manifest.d30e813744ca9110f59e102ad9f2567a.js": "/projectOkten/precache-manifest.d30e813744ca9110f59e102ad9f2567a.js",
+    "service-worker.js": "/projectOkten/service-worker.js",
+    "static/css/3.7d0349df.chunk.css.map": "/projectOkten/static/css/3.7d0349df.chunk.css.map",
+    "static/css/4.25b44a53.chunk.css.map": "/projectOkten/static/css/4.25b44a53.chunk.css.map",
+    "static/css/5.5175b7cb.chunk.css.map": "/projectOkten/static/css/5.5175b7cb.chunk.css.map",
+    "static/css/main.55838211.chunk.css.map": "/projectOkten/static/css/main.55838211.chunk.css.map",
+    "static/js/2.e3db901b.chunk.js.LICENSE.txt": "/projectOkten/static/js/2.e3db901b.chunk.js.LICENSE.txt",
+    "static/media/ProfileUpperPhoto.791ef81a.jpg": "/projectOkten/static/media/ProfileUpperPhoto.791ef81a.jpg",
+    "static/media/avatar.8dcccb66.png": "/projectOkten/static/media/avatar.8dcccb66.png",
+    "static/media/preloader.svg": "/projectOkten/static/media/preloader.3773db1c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f2446c10.js",
+    "static/js/2.e3db901b.chunk.js",
+    "static/css/main.55838211.chunk.css",
+    "static/js/main.7bdb4f19.chunk.js"
+  ]
+}
