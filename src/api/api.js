@@ -8,6 +8,15 @@ const instance = axios.create({
     }
 });
 
+// const instanceForNewsAPI = axios.create({
+//         withCredentials: true,
+//         headers: {
+//             "API-KEY": 'bc8466bc07114094990dd3fc378665e8'
+//         }
+//     }
+// );
+
+
 export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 5) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`,
@@ -42,6 +51,12 @@ export const profileApi = {
     }
 };
 
+export const newsAPI = {
+    getNews() {
+        return axios.get('http://newsapi.org/v2/top-headlines?country=ua&apiKey=bc8466bc07114094990dd3fc378665e8')
+            .then(res => res.data)
+    }
+};
 
 
 
