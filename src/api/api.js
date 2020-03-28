@@ -8,14 +8,6 @@ const instance = axios.create({
     }
 });
 
-// const instanceForNewsAPI = axios.create({
-//         withCredentials: true,
-//         headers: {
-//             "API-KEY": 'bc8466bc07114094990dd3fc378665e8'
-//         }
-//     }
-// );
-
 
 export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 5) {
@@ -48,6 +40,15 @@ export const profileApi = {
     },
     logout() {
         return instance.delete('auth/login')
+    },
+    savePhoto(photoFile) {
+        const formData = new FormData();
+        formData.append('image', photoFile);
+        return instance.put('profile/photo', formData,{
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
     }
 };
 

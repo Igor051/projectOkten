@@ -1,15 +1,20 @@
 import React from "react";
 import style from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
-import Contacts from "./Contacts";
 import avatar from "../../../assets/images/avatar.png"
-import profileUpperPhoto from  '../../../assets/images/ProfileUpperPhoto.jpg'
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import profileUpperPhoto from '../../../assets/images/ProfileUpperPhoto.jpg'
+import ProfileData from "./ProfileData/ProfileData";
 
 function ProfileInfo(props) {
     if (!props.profile) {
         return <Preloader/>
     }
+
+    const onMainPhotoSelected = (e) => {
+        if (e.target.files.length) {
+            props.savePhoto(e.target.files[0])
+        }
+    };
 
     return (
         <div>
@@ -19,15 +24,10 @@ function ProfileInfo(props) {
                     src={profileUpperPhoto}/>
             </div>
             <div>
-                {props.profile.photos.large ?
-                    <img src={props.profile.photos.large} alt="avatar"/> :
-                    <img src={avatar}
-                         className={style.avatar}/>}
+                {<img src={props.profile.photos.large || avatar} alt="avatar" className={style.avatar}/>}
+                {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
             </div>
-            <div>
-                <ProfileStatusWithHooks aboutMe={props.profile.aboutMe} status={props.status} updateStatus={props.updateStatus}/>
-                <Contacts contacts={props.profile.contacts}/>
-            </div>
+            <ProfileData profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
         </div>
     )
 }

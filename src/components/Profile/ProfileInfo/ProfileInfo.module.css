@@ -2,12 +2,16 @@
     height: 200px;
     width: 1000px;
 }
-.contacts{
-    margin-top: 15px;
-    margin-bottom: 15px;
+
+.contacts {
+    margin: 15px 0 15px 5px;
 }
 
-.avatar{
+.avatar {
     width: 290px;
     height: 290px;
+}
+
+.profileData {
+    margin: 15px 0 0 4px;
 }
