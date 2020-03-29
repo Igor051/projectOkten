@@ -24,7 +24,6 @@ function ProfileStatusWithHooks(props) {
         <input onChange={onStatusChange}
                autoFocus={true} onBlur={deactivateEditMode} value={status}></input>
         }
-        <div><b>About me:</b> {props.aboutMe}</div>
     </div>
 }
 
