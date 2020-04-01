@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Nav from "./components/Nav/Nav";
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Redirect, Route, withRouter} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
@@ -19,8 +19,18 @@ const Settings = React.lazy(() => import('./components/Settings/Settings'));
 const Music = React.lazy(() => import('./components/Music/Music'));
 
 class App extends React.Component {
+    catchAllUnhandledErrors = (reason, promiseRejectionEvent) => {
+        alert('Some error occurred');
+    };
+
     componentDidMount() {
-        this.props.initializeApp()
+        this.props.initializeApp();
+        window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors)
+        //Відписуюмось від івентЛісенера
     }
 
     render() {
@@ -33,11 +43,12 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <Nav/>
                 <div className='app-wrapper-content'>
+                    <Route exact path='/' render={() => <Redirect to='/profile'/>}/>
                     <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                     <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                     <Route path='/users' render={() => <UsersContainer/>}/>
                     <Route path='/login' render={() => <Login/>}/>
-                    <Route path='/news' render={withSuspense(News) }/>
+                    <Route path='/news' render={withSuspense(News)}/>
                     <Route path='/settings' render={withSuspense(Settings)}/>
                     <Route path='/music' render={withSuspense(Music)}/>
                 </div>

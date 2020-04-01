@@ -70,9 +70,9 @@ export const getUserStatus = (userId) => async (dispatch) => {
 export const updateStatus = (status) => async (dispatch) => {
     const res = await profileApi.updateStatus(status);
 
-    if (res.data.resultCode === 0) {
-        dispatch(setStatus(status))
-    }
+        if (res.data.resultCode === 0) {
+            dispatch(setStatus(status))
+        }
 };
 
 export const savePhoto = (file) => async (dispatch) => {
