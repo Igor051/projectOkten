@@ -1,5 +1,6 @@
 import style from "../ProfileInfo.module.css";
 import styleInput from '../../../common/Inputs/Inputs.module.css'
+import btnStyle from '../../../common/common.module.css'
 import React from "react";
 import {createField, Input, Textarea} from "../../../common/Inputs/Inputs";
 import {reduxForm} from "redux-form";
@@ -7,7 +8,7 @@ import {reduxForm} from "redux-form";
 const ProfileDataForm = ({profile, handleSubmit,error}) => {
     return <form onSubmit={handleSubmit} className={style.profileData}>
         <div>
-            <button>save</button>
+            <button className={btnStyle.button}>save</button>
         </div>
         {
             error && <div className={styleInput.formSummaryError}>

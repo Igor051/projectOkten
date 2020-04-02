@@ -3,6 +3,7 @@ import {reduxForm} from "redux-form";
 import {createField, Input} from "../common/Inputs/Inputs";
 import {required} from "../../helpers/validators/validators";
 import style from '../common/Inputs/Inputs.module.css'
+import btnStyle from '../common/common.module.css'
 
 function LoginForm({handleSubmit, error, captchaUrl}) {
     return <form onSubmit={handleSubmit}>
@@ -17,7 +18,7 @@ function LoginForm({handleSubmit, error, captchaUrl}) {
             </div>
         }
         <div>
-            <button>Login</button>
+            <button className={btnStyle.button}>Login</button>
         </div>
     </form>
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import btnStyle from '../common/common.module.css'
 import {Field, reduxForm} from "redux-form";
 import {Textarea} from "../common/Inputs/Inputs";
 import {required, maxLengthCreator} from "../../helpers/validators/validators";
@@ -12,7 +13,7 @@ function AddMessageForm(props) {
                    name='newMessageBody' placeholder='Write a message...'/>
         </div>
         <div>
-            <button>Send</button>
+            <button className={btnStyle.button}>Send</button>
         </div>
     </form>
 }

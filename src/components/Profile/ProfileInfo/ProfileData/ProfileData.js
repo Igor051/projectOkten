@@ -1,11 +1,12 @@
 import Contacts from "./Contacts";
 import style from '../ProfileInfo.module.css'
+import commonStyle from '../../../common/common.module.css'
 import React from "react";
 
 const ProfileData = ({profile, isOwner, goToEditMode}) => {
     return <div className={style.profileData}>
         {isOwner && <div>
-            <button onClick={goToEditMode}>Edit</button>
+            <button className={commonStyle.button}  onClick={goToEditMode}>Edit</button>
         </div>}
         <div>
             <b>Full name: </b>{profile.fullName}
