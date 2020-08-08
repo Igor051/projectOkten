@@ -2,7 +2,49 @@ import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 
-let store = {
+type PostType = {
+    id: number
+    message: string
+    likesCount: string
+}
+
+type ProfilePageType = {
+    posts: Array<PostType>
+    newPostText: string
+}
+
+type DialogType = {
+    id: number
+    name: string
+    img: string
+}
+
+type MessageType = {
+    id: number
+    message: string
+}
+
+export type MessagesType = {
+    dialogs: Array<DialogType>
+    messages: Array<MessageType>
+    newMessageText: string
+}
+
+ type StateType = {
+    profilePage: ProfilePageType
+    messagesPage: MessagesType
+    sidebar: {}
+}
+
+type StoreType = {
+    _state: StateType
+    _callSubscriber: (state:StateType) => void
+    getState: () => StateType
+    subscribe: (observer: any) => void
+    dispatch: (action: any) => void
+}
+
+let store: StoreType = {
     _state: {
         profilePage: {
             posts: [
@@ -42,19 +84,21 @@ let store = {
 
         sidebar: {}
     },
-    _callSubscriber() {
+    _callSubscriber(state) {
         console.log('state changed')
     },
 
     getState() {
         return this._state
     },
-    subscribe(observer) {
+    subscribe(observer: any) {
         this._callSubscriber = observer
     },
 
-    dispatch(action) {
+    dispatch(action: any) {
+        // @ts-ignore
         this._state.profilePage = profileReducer(this._state.profilePage, action)
+        // @ts-ignore
         this._state.messagesPage = dialogsReducer(this._state.messagesPage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
 
@@ -63,8 +107,6 @@ let store = {
 }
 
 
-
-
-
-export default store
+ export default store
+// @ts-ignore
 window.store = store
